@@ -8,9 +8,9 @@ function clean(text) {
         return text;
 }
 
-const prefix = "!";
-const token = " ";
-const embedColor = 0xE52B50;
+const prefix = "/";
+const token = process.env.BOT_TOKEN;
+const embedColor = #36393e;
 
 client.on("ready", () => {
   client.user.setGame(prefix + `new`);
