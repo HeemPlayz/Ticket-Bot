@@ -85,7 +85,7 @@ client.on("message", (message) => {
     return
     }
     let addedmember = message.mentions.members.first();
-    if(addmember < 1) return message.reply("Please Mention a User Name");
+    if(addedmember < 1) return message.reply("Please Mention a User Name");
     message.channel.overwritePermissions(addedmember, { SEND_MESSAGES : true, VIEW_CHANNEL : true});
     const embed5 = new Discord.RichEmbed()
     .setColor(embedColor)
