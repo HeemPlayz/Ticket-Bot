@@ -16,7 +16,7 @@ function clean(text) {
 
 const prefix = "/";
 const token = process.env.BOT_TOKEN;
-const embedColor = 36393e;
+const embedColor = "#36393e";
 
 client.on("ready", () => {
   client.user.setGame(prefix + `new`);
