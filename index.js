@@ -23,7 +23,7 @@ client.on("message", (message) => {
 
   if (message.content.toLowerCase().startsWith(prefix + `help`)) {
     const embed = new Discord.RichEmbed()
-    .setTitle(`Ticket Bot Help`)
+    .setTitle(`Bass Tickets Help`)
     .setColor(embedColor)
     .setDescription(`Hello! I'm Ticket Manager, the Discord bot for super cool support ticket stuff! Here are my commands:`)
     .addField(`Tickets`, `[${prefix}new]() > Opens up a new ticket and tags the Support Team\n[${prefix}close]() > Closes a ticket that has been resolved or been opened by accident\n[${prefix}add]() > Adds a member to a ticket\n[${prefix}remove]() > Removes a member from a ticket`)
@@ -36,14 +36,14 @@ client.on("message", (message) => {
     if (!message.guild.roles.exists("name", "Support")) {
     const embed0 = new Discord.RichEmbed()
     .setColor(embedColor)
-    .addField(`Ticket Bot`, `This server doesn't have a \`Support\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`)
+    .addField(`Bass Tickets`, `This server doesn't have a \`Support\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`)
     message.channel.send({ embed: embed0 });
     return
     }
     if (message.guild.channels.exists("name", "ticket-" + message.author.username)) {
     const embed1 = new Discord.RichEmbed()
     .setColor(embedColor)
-    .addField(`Ticket Bot`, `You already have a ticket open.`)
+    .addField(`Bass Tickets`, `You already have a ticket open.`)
     message.channel.send({ embed: embed1 });
     return
     }
@@ -80,7 +80,7 @@ client.on("message", (message) => {
     if (!message.channel.name.startsWith(`ticket-`)) {
     const embed4 = new Discord.RichEmbed()
     .setColor(embedColor)
-    .addField(`Ticket Bot`, `You can't use the this outside of a ticket channel.`)
+    .addField(`Bass Tickets`, `You can't use the this outside of a ticket channel.`)
     message.channel.send({ embed: embed4 });
     return
     }
@@ -98,7 +98,7 @@ client.on("message", (message) => {
     if (!message.channel.name.startsWith(`ticket-`)) {
     const embed6 = new Discord.RichEmbed()
     .setColor(embedColor)
-    .addField(`Ticket Bot`, `You can't use the this outside of a ticket channel.`)
+    .addField(`Bass Tickets`, `You can't use the this outside of a ticket channel.`)
     message.channel.send({ embed: embed6 });
     return
     }
@@ -115,17 +115,17 @@ client.on("message", (message) => {
     if (!message.channel.name.startsWith(`ticket-`)) {
     const embed8 = new Discord.RichEmbed()
     .setColor(embedColor)
-    .addField(`Ticket Bot`, `You can't use the this outside of a ticket channel.`)
+    .addField(`Bass Tickets`, `You can't use the this outside of a ticket channel.`)
     message.channel.send({ embed: embed8 });
     return
     }   
 
     const embed9 = new Discord.RichEmbed()
     .setColor(embedColor)
-    .addField(`Ticket Bot`, 'Are you sure? Once confirmed, you cannot reverse this action!\nTo confirm, type \`-confirm\`. This will time out in 10 seconds and be cancelled.')
+    .addField(`Bass Tickets`, 'Are you sure? Once confirmed, you cannot reverse this action!\nTo confirm, type \`/confirm\`. This will time out in 10 seconds and be cancelled.')
     message.channel.send({ embed: embed9 })
     .then((m) => {
-      message.channel.awaitMessages(response => response.content === '-confirm', {
+      message.channel.awaitMessages(response => response.content === '/confirm', {
         max: 1,
         time: 10000,
         errors: ['time'],
