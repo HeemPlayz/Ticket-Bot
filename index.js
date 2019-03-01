@@ -18,10 +18,6 @@ const prefix = "/";
 const token = process.env.BOT_TOKEN;
 const embedColor = "#36393e";
 
-client.on("ready", () => {
-  client.user.setGame(prefix + `new`);
-});
-
 client.on("message", (message) => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -89,6 +85,7 @@ client.on("message", (message) => {
     return
     }
     addedmember = message.mentions.members.first();
+    if(addmember < 1) return message.reply("Please Mention a User Name");
     message.channel.overwritePermissions(addedmember, { SEND_MESSAGES : true, VIEW_CHANNEL : true});
     const embed5 = new Discord.RichEmbed()
     .setColor(embedColor)
