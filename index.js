@@ -1,6 +1,12 @@
 const Discord = require('discord.js')
 const client = new Discord.Client();
 
+client.on('ready', () => {
+  console.log(`Logged In as: ${client.user.tag}`);
+  client.user.setGame(`${prefix}help`, "https://www.twitch.tv/peery13");
+  
+});
+
 function clean(text) {
     if (typeof(text) === "string")
       return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
@@ -10,7 +16,7 @@ function clean(text) {
 
 const prefix = "/";
 const token = process.env.BOT_TOKEN;
-const embedColor = #36393e;
+const embedColor = 36393e;
 
 client.on("ready", () => {
   client.user.setGame(prefix + `new`);
