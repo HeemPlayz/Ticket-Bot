@@ -85,7 +85,7 @@ client.on("message", (message) => {
     return
     }
     let addedmember = message.mentions.members.first();
-    if(addedmember < 1) return message.reply("Please Mention a User Name");
+ 
     message.channel.overwritePermissions(addedmember, { SEND_MESSAGES : true, VIEW_CHANNEL : true});
     const embed5 = new Discord.RichEmbed()
     .setColor(embedColor)
@@ -103,7 +103,6 @@ client.on("message", (message) => {
     return
     }
     let removedmember = message.mentions.members.first();
-    if (removedmember < 1) return message.reply("Please Mention a User Name");
     message.channel.overwritePermissions(removedmember, { SEND_MESSAGES : false, VIEW_CHANNEL : false});
     const embed7 = new Discord.RichEmbed()
     .setColor(embedColor)
@@ -143,14 +142,5 @@ client.on("message", (message) => {
 
 });
 
-function response(c) {
-  while (true) {
-    client.on("message", (message) => {
-      if(message.channel == c) {
-        return message.content;
-      }
-    });
-  }
-};
 
 client.login(token)
